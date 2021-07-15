@@ -1,0 +1,149 @@
+@charset "utf-8";
+
+header {
+	z-index: 99999;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	@include transition-all();
+	&.header-sticky {
+		box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+		background: white;
+		top: -210px;
+		.navbar {
+			padding-bottom: 20px;
+		}
+	}
+	.navbar {
+		font-size: $header-font-size;
+		color: $main-color;
+		padding-top: 47px;
+		padding-bottom: 40px;
+		.nav-logo {
+			width: fit-content;
+			margin: auto;
+			margin-bottom: 41px;
+			.logo-pc {
+				height: 145px;
+			}
+			.logo-sp {
+				display: none;
+			}
+		}
+		.nav-menu {
+			@include display-flex();
+			@include justify-content-center();
+			@include align-items-center();
+			.nav-item {
+				padding-right: 20px;
+				padding-left: 20px;
+				@include transition-all();
+				border-bottom: 1px solid transparent;
+				&:hover {
+					border-bottom: 1px solid $main-color;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	header {
+		background: white;
+		&.header-sticky {
+			top: 0;
+			.navbar {
+				padding-bottom: 4vw;
+			}
+		}
+		.navbar {
+			color: white;
+			font-size: $header-font-size-sp;
+			@include display-flex();
+			@include justify-content-space-between();
+			@include align-items-center();
+			padding: 4vw 2.6vw;
+			position: relative;
+			.nav-logo {
+				width: fit-content;
+				margin: 0;
+				margin-bottom: 0;
+				.logo-pc {
+					display: none;
+				}
+				.logo-sp {
+					display: block;
+					width: 45.3vw;
+				}
+			}
+			.nav-menu {
+				position: fixed;
+				top: 0;
+				right: -100vw;
+				width: 100vw;
+				height: 100vh;
+				overflow: auto;
+				background: linear-gradient(90deg, #0E3263, #244C84);
+				display: block;
+				z-index: 999;
+				padding: 25.3vw 13.3vw;
+				line-height: 2;
+				@include transition-all();
+				&.active {
+					right: 0;
+				}
+				.nav-item{
+					padding: 0;
+					margin: 3vw 0;
+					&:hover {
+						border-bottom: 1px solid white;
+					}
+				}
+				.nav-menu-close {
+					position: absolute;
+					top: 10vw;
+					right: 10vw;
+					img {
+						width: 5vw;
+					}
+				}
+				.nav-recruit {
+					display: block;
+					margin: 16vw auto 0;
+					padding: 0 10vw;
+					width: fit-content;
+					border: 0.1vw solid white;
+					@include transition-all();
+					&:hover {
+						background: white;
+						color: $main-color;
+					}
+				}
+			}
+			.hamburger {
+				display: block;
+				.bar {
+					display: block;
+					width: 6vw;
+					height: 1px;
+					margin: 1.7vw auto;
+					@include transition-all();
+					background-color: #101010;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 900px) and (min-width: 769px) {
+	header {
+		.navbar {
+			.nav-menu {
+				.nav-item {
+					padding-right: 10px;
+					padding-left: 10px;
+				}
+			}
+		}
+	}
+}

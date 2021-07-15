@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+/* 基礎のスタイル */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,700;0,800;1,100&family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.bg-gray {
+    background: #f0f0f0;
+}
+.bg-blue-gradient {
+    background: linear-gradient(90deg, #0e3263, #244c84);
+    color: white;
+    .title-jp {
+        border-left: 1px solid white;
+    }
+}
+.bg-lightblue-gradient {
+    background: linear-gradient(90deg, #e0edff, #dffff6);
+}
+
+html {
+    margin-top: unset !important;
+}
+body {
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none !important;
+    @include transition-all;
+}
+
+* a {
+    text-decoration: none !important;
+    color: unset;
+}
+
+
+li {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.pc,
+.tb,
+.sp {
+    display: none;
+}
+
+.container {
+    max-width: 1416px;
+    margin: auto;
+    padding-right: 120px;
+    padding-left: 120px;
+}
+.container-800 {
+    max-width: 1000px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin: auto;
+}
+.sp-show {
+    display: none !important;
+}
+@media screen and (min-width: 1025px) {
+    .pc {
+        display: block;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .tb {
+        display: block;
+    }
+}
+@media screen and (max-width: 768px) {
+    .sp-show {
+        display: inline-block !important;
+    }
+    body {
+        font-size: 4.3vw;
+    }
+    .sp {
+        display: block;
+    }
+    .container {
+        padding-right: 4vw;
+        padding-left: 4vw;
+    }
+    .container-800 {
+        padding-right: 4vw;
+        padding-left: 4vw;
+    }
+}
